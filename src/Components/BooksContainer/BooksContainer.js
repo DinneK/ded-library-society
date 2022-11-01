@@ -1,20 +1,30 @@
 import React from "react";
 import BookCard from "../BookCard/BookCard";
-// import BookCard from "../BookCard/BookCard";
-// import mockTrendingBooks from "../../mockTrendingBooks";
 import "./BookContainer.css";
 
 const BookContainer = ({ trendingBooks, coverImages }) => {
-  console.log({ coverImages });
-  const coverId = coverImages.map((coverImage) =>
-    console.log(coverImage.length)
-  );
-  const bookCards = trendingBooks.map((trendingBook) => {
-    console.log({ trendingBook });
-    return <BookCard key={trendingBook.key} title={trendingBook.title} />;
+  const coverIds = coverImages.map((coverImage) => {
+    return coverImage.split('/').reverse()[0].split('-')[0];
   });
 
-  return <section className="book-container">{bookCards}</section>;
+  const bookCards = trendingBooks.reduce((cardList, book) => {
+    coverIds.forEach(coverId => {
+      if (String(book['cover_i']) === coverId) {
+        cardList.push(<BookCard
+          key={ book.key }
+          cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
+          title={ book.title }
+        />);
+      }
+    });
+    return cardList;
+  }, []);
+
+  return (
+    <section className="book-container">
+      { bookCards }
+    </section>
+  );
 };
 
 export default BookContainer;
