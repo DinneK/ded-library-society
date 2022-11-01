@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import mockTrendingBooks from "../../mockTrendingBooks";
+import {
+  mockCoverImage1,
+  mockCoverImage2,
+  mockCoverImage3,
+  mockCoverImage4,
+  mockCoverImage5,
+} from "../../mockCoverImages";
+import "./App.css";
+import BookContainer from "../BooksContainer/BooksContainer";
 
-function App() {
+const App = () => {
+  const mockBooks = mockTrendingBooks.works;
+  const [trendingBooks, setTrendingBooks] = useState(mockBooks);
+  const images = [
+    mockCoverImage1,
+    mockCoverImage2,
+    mockCoverImage3,
+    mockCoverImage4,
+    mockCoverImage5,
+  ];
+
+  const [coverImages, setCoverImages] = useState(images);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>D.E.D. Library Society</h1>
+      <BookContainer trendingBooks={trendingBooks} coverImages={coverImages} />
+    </main>
   );
-}
+};
 
 export default App;
