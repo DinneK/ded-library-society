@@ -12,17 +12,16 @@ const BookContainer = ({ trendingBooks, coverImages }) => {
       if (String(book['cover_i']) === coverId) {
         cardList.push(
           <BookCard
-          id={ book.key }
-          cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
-          title={ book.title }
+            key={ book.key }
+            id={ book.key }
+            cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
+            title={ book.title }
           />
-          );
-          // console.log(book.key)
-        }
-      });
+        );
+      }
+    });
     return cardList;
   }, []);
-  // console.log(bookCards)
 
   return (
     <section className="book-container">
