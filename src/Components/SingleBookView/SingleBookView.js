@@ -4,7 +4,7 @@ const SingleBookView = ({ trendingBooks, coverImages, descriptions, singleBookId
 
     const foundBook = trendingBooks.find(book => book.key === `/works/${singleBookId}`)
 
-    const foundDesc = descriptions.find(desc => desc.key === `/works/${singleBookId}`)
+    const foundDesc = descriptions.find(desc => desc.key === `/works/${singleBookId}`) 
 
     return(
         <div className='single-book-view'>
