@@ -13,6 +13,7 @@ const BookContainer = ({ trendingBooks, coverImages }) => {
         cardList.push(
           <BookCard
           id={ book.key }
+          key={book.key}
           cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
           title={ book.title }
           />

@@ -13,7 +13,7 @@ const SingleBookView = ({ trendingBooks, coverImages, descriptions, singleBookId
             <h3>{foundBook.author_name}</h3>
             <h3>{foundDesc.subjects[0]}</h3>
             <h3>{foundBook.first_publish_year}</h3>
-            <p>{foundDesc.description.value}</p>
+            <p>{foundDesc.description ? foundDesc.description.value : !foundDesc.description && <span>Sorry</span>}</p>
         </div>
     )
 }
