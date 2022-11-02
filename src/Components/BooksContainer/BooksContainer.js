@@ -10,15 +10,19 @@ const BookContainer = ({ trendingBooks, coverImages }) => {
   const bookCards = trendingBooks.reduce((cardList, book) => {
     coverIds.forEach(coverId => {
       if (String(book['cover_i']) === coverId) {
-        cardList.push(<BookCard
-          key={ book.key }
+        cardList.push(
+          <BookCard
+          id={ book.key }
           cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
           title={ book.title }
-        />);
-      }
-    });
+          />
+          );
+          // console.log(book.key)
+        }
+      });
     return cardList;
   }, []);
+  // console.log(bookCards)
 
   return (
     <section className="book-container">
