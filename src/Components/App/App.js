@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, NavLink, Switch } from "react-router-dom"
+import { Route, NavLink, Switch } from "react-router-dom";
 import mockTrendingBooks from "../../mockTrendingBooks";
 import {
   mockCoverImage1,
@@ -10,15 +10,16 @@ import {
 } from "../../mockCoverImages";
 import {
   description1, description2, description3, description4, description5
-}from '../../mockDescriptions'
+} from '../../mockDescriptions';
 import "./App.css";
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
+import Header from "../Header/Header";
 
 const App = () => {
   const mockBooks = mockTrendingBooks.works;
   const [trendingBooks, setTrendingBooks] = useState(mockBooks);
-  
+
   const images = [
     mockCoverImage1,
     mockCoverImage2,
@@ -27,38 +28,45 @@ const App = () => {
     mockCoverImage5,
   ];
   const [coverImages, setCoverImages] = useState(images);
-  
+
   const descriptions = [
-    description1, 
-    description2, 
-    description3, 
-    description4, 
+    description1,
+    description2,
+    description3,
+    description4,
     description5
-  ]
-  const [ bookDescriptions, setbookDescriptions ] = useState(descriptions)
+  ];
+  const [bookDescriptions, setbookDescriptions] = useState(descriptions);
 
   return (
     <main className="App">
       <Switch>
-        <Route 
+        <Route
           exact
           path='/'
-          render={() => {
+          render={ () => {
             return (
-              <div className="book-container">
-                <h1>D.E.D. Library Society</h1>
-                <BookContainer trendingBooks={trendingBooks} coverImages={coverImages} />
-              </div>
-            )
-          }}
+              <section>
+                <Header />
+                <div className="book-container">
+                  <BookContainer trendingBooks={ trendingBooks } coverImages={ coverImages } />
+                </div>
+              </section>
+            );
+          } }
         />
-        <Route 
+        <Route
           path='/books/works/:id'
-          render={({match}) => {
+          render={ ({ match }) => {
             return (
-              <SingleBookView singleBookId={match.params.id} trendingBooks={trendingBooks} coverImages={coverImages} descriptions={descriptions}/>
-            )
-          }}
+              <section>
+                <Header />
+                <div className="book-container">
+                  <SingleBookView singleBookId={ match.params.id } trendingBooks={ trendingBooks } coverImages={ coverImages } descriptions={ descriptions } />
+                </div>
+              </section>
+            );
+          } }
         />
       </Switch>
     </main>
