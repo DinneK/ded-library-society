@@ -1,6 +1,15 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+// import { fetchDescriptions } from '../../apiCalls'
 
-const SingleBookView = ({ trendingBooks, coverImages, descriptions, singleBookId }) => {
+const SingleBookView = ({ trendingBooks, descriptions, singleBookId }) => {
+
+    // const [bookDescriptions, setbookDescriptions] = useState([]);
+    
+    // useEffect(() => {
+    //     fetchDescriptions()
+    //     .then(data => console.log(data))
+    // }, [bookDescriptions])
+    // console.log(bookDescriptions)
 
     const foundBook = trendingBooks.find(book => book.key === `/works/${singleBookId}`)
 
