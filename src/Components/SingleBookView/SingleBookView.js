@@ -2,21 +2,9 @@ import React from 'react'
 
 const SingleBookView = ({ trendingBooks, coverImages, descriptions, singleBookId }) => {
 
-    // const [description, setDescription] = useState('')
-
     const foundBook = trendingBooks.find(book => book.key === `/works/${singleBookId}`)
 
     const foundDesc = descriptions.find(desc => desc.key === `/works/${singleBookId}`) 
-    // console.log(typeof foundDesc.description.value)
-    // console.log({descriptions})
-
-    // const noDesc = (singleBookId) => {
-    //     if(!descriptions.description.value) {
-    //         return 'No description available'
-    //     } else {
-    //         return foundDesc
-    //     }
-    // }
 
     return(
         <div className='single-book-view'>
