@@ -2,14 +2,15 @@ import React from "react";
 import BookCard from "../BookCard/BookCard";
 import "./BookContainer.css";
 
-const BookContainer = ({ trendingBooks, coverImages }) => {
-  const coverIds = coverImages.map((coverImage) => {
-    return coverImage.split('/').reverse()[0].split('-')[0];
+const BookContainer = ({ trendingBooks }) => {
+  const coverIds = trendingBooks.map((book) => {
+    return String(book['cover_i']);
   });
 
   const bookCards = trendingBooks.reduce((cardList, book) => {
     coverIds.forEach(coverId => {
       if (String(book['cover_i']) === coverId) {
+        console.log(coverId);
         cardList.push(
           <BookCard
             key={ book.key }
