@@ -11,17 +11,17 @@ const fetchTrending = async () => {
   }
 };
 
-const fetchDescriptions = async (id) => {
+const fetchSingleBook = async (id) => {
   try {
     const response = await fetch(`https://openlibrary.org/works/${id}.json`);
     const data = await response.json();
     if (!response.ok) {
-      console.log('error')
+      console.log('error');
     }
-    return data
+    return data;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-export { fetchTrending, fetchDescriptions };
+export { fetchTrending, fetchSingleBook };
