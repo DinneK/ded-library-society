@@ -1,32 +1,41 @@
-import React, {useState, useEffect} from 'react'
-import { fetchDescriptions } from '../../apiCalls'
+import React, { useState, useEffect } from 'react';
+import { fetchSingleBook } from '../../apiCalls';
+// import BookCard from '../BookCard/BookCard';
 
 const SingleBookView = ({ trendingBooks, singleBookId }) => {
-    const [bookDescriptions, setbookDescriptions] = useState({});
-    
+    const [currentBook, setCurrentBook] = useState({});
+
     useEffect(() => {
-        fetchDescriptions(singleBookId)
-        .then(data => {
-            setbookDescriptions(data)
-        })
-    }, [])
+        fetchSingleBook(singleBookId)
+            .then(data => {
+                setCurrentBook(data);
+            });
+    }, [singleBookId]);
 
-    if(!bookDescriptions) {
-        return <h1>Loading</h1>
+    const findDetails = trendingBooks.find(book => book.key === currentBook.key);
+
+    if (!currentBook && !findDetails) {
+        return <h1>Please waiting while we load your book...</h1>;
     }
-    if(bookDescriptions.covers) {
-        return(
+    if (currentBook.covers) {
+        return (
             <div className='single-book-view'>
-                <img src={`https://covers.openlibrary.org/b/id/${String(bookDescriptions.covers[0])}-M.jpg`}/>
-                <h2>{bookDescriptions.title}</h2>
-                {/* <h3>{foundBook.author_name}</h3> */}
-                <h3>{bookDescriptions.subjects[0]}</h3>
-                {/* <h3>{foundBook.first_publish_year}</h3> */}
-                <p>{bookDescriptions.description ? bookDescriptions.description.value : !bookDescriptions.description && <span>Sorry</span>}</p>
+                <img
+                    src={ `https://covers.openlibrary.org/b/id/${String(currentBook.covers[0])}-M.jpg` }
+                    alt={ `${currentBook.title} Cover` } />
+                <h2>{ currentBook.title }</h2>
+                <h3>{ findDetails.author_name }</h3>
+                <h3>{ currentBook.subjects[0] }</h3>
+                <h3>{ findDetails.first_publish_year }</h3>
+                <p>{ currentBook.description
+                    ? currentBook.description.value
+                    : !currentBook.description
+                    && <span>Oh darn! It looks like you'll need to read this book to see what it's all about</span>
+                }</p>
             </div>
-        )
+        );
     }
 
-}
+};
 
-export default SingleBookView
+export default SingleBookView;;
