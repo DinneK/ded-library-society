@@ -25,6 +25,7 @@ const App = () => {
     fetchTrending()
       .then(data => setTrendingBooks(data.works));
   }, []);
+  // console.log(trendingBooks)
 
   return (
     <main className="App">
@@ -50,7 +51,8 @@ const App = () => {
               <section>
                 <Header />
                 <div className="book-container">
-                  <SingleBookView singleBookId={ match.params.id } trendingBooks={ trendingBooks } />
+                  {console.log('match', match.params.id)}
+                  <SingleBookView singleBookId={ match.params.id } trendingBooks={ trendingBooks }/>
                 </div>
               </section>
             );

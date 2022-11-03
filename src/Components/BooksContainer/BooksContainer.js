@@ -8,9 +8,6 @@ const BookContainer = ({ trendingBooks }) => {
     return String(book['cover_i']);
   });
 
-  const finalGambit = trendingBooks.filter(book => book.key === "/works/OL26515194W")
-  console.log(finalGambit)
-
   const noDuplicates = trendingBooks.reduce((bookArr, book) => {
     if(book.cover_i) {
       bookArr.push(book)
