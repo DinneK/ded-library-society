@@ -24,7 +24,6 @@ const App = () => {
           render={() => {
             return (
               <section>
-                {/* <Header /> */}
                 <div className="book-container">
                   <BookContainer trendingBooks={trendingBooks} />
                 </div>
@@ -37,7 +36,6 @@ const App = () => {
           render={({ match }) => {
             return (
               <section>
-                {/* <Header /> */}
                 <div className="book-container">
                   <SingleBookView
                     singleBookId={match.params.id}

@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import saveBookReducer from "./features/saveBook/saveBookSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     savedBooks: saveBookReducer,
   },
