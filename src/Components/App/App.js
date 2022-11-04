@@ -6,6 +6,7 @@ import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
 import { fetchTrending } from "../../apiCalls";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
+import { useSelector, useDispatch } from "react-redux";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
@@ -34,6 +35,7 @@ const App = () => {
         <Route
           path="/books/works/:id"
           render={({ match }) => {
+            console.log({ match });
             return (
               <section>
                 <div className="book-container">
@@ -46,8 +48,21 @@ const App = () => {
             );
           }}
         />
+        {/* <Route
+          path="/books/saved"
+          render={({ match }) => {
+            console.log({ match });
+            return (
+              <section>
+                <div>
+                  <SavedBooksList trendingBooks={trendingBooks} />
+                </div>
+              </section>
+            );
+          }}
+        /> */}
       </Switch>
-      <SavedBooksList />
+      <SavedBooksList trendingBooks={trendingBooks} />
     </main>
   );
 };
