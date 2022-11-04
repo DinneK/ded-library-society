@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { fetchSingleBook } from "../../apiCalls";
-// import BookCard from '../BookCard/BookCard';
 import { useSelector, useDispatch } from "react-redux";
 import { saveBook, deleteBook } from "../../features/saveBook/saveBookSlice";
 
 const SingleBookView = ({ trendingBooks, singleBookId }) => {
   const [currentBook, setCurrentBook] = useState({});
-  // console.log({currentBook})
   const dispatch = useDispatch();
   const booksArr = useSelector((state) => state.savedBooks);
   const bookID = `/works/${singleBookId}`;
@@ -16,7 +14,6 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
       setCurrentBook(data);
     });
   }, [singleBookId]);
-  //   console.log(singleBookId)
 
   const findDetails = trendingBooks.find(
     (book) => book.key === currentBook.key
@@ -25,7 +22,6 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
   if (!currentBook && !findDetails) {
     return <h1>Please waiting while we load your book...</h1>;
   }
-  //&& !booksArr.savedBooks.includes(`/works/${singleBookId}`)
   if (currentBook.covers && !booksArr.savedBooks.includes(bookID)) {
     return (
       <div className="single-book-view">
@@ -55,12 +51,10 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
       </div>
     );
   }
-  //   console.log(booksArr);
-  if (booksArr.savedBooks.includes(bookID)) {
+  if (currentBook.covers && booksArr.savedBooks.includes(bookID)) {
     return (
       <div className="single-book-view">
         <div>
-          {/* {console.log(currentBook)} */}
           <img
             src={`https://covers.openlibrary.org/b/id/${String(
               currentBook.covers[0]
