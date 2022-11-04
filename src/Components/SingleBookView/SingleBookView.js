@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { fetchSingleBook } from "../../apiCalls";
 // import BookCard from '../BookCard/BookCard';
+import { useSelector, useDispatch } from "react-redux";
+import { saveBook, deleteBook } from "../../features/saveBook/saveBookSlice";
 
 const SingleBookView = ({ trendingBooks, singleBookId }) => {
   const [currentBook, setCurrentBook] = useState({});
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchSingleBook(singleBookId).then((data) => {
@@ -41,6 +45,7 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
                 </span>
               )}
         </p>
+        <button onClick={() => dispatch(saveBook(currentBook))}>❤️</button>
       </div>
     );
   }

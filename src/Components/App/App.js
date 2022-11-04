@@ -4,47 +4,52 @@ import "./App.css";
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
-import { fetchTrending } from '../../apiCalls';
+import { fetchTrending } from "../../apiCalls";
+import SavedBooksList from "../SavedBooksList/SavedBooksList";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
 
   useEffect(() => {
-    fetchTrending()
-      .then(data => setTrendingBooks(data.works));
+    fetchTrending().then((data) => setTrendingBooks(data.works));
   }, []);
 
   return (
     <main className="App">
+      <Header />
       <Switch>
         <Route
           exact
-          path='/'
-          render={ () => {
+          path="/"
+          render={() => {
             return (
               <section>
-                <Header />
+                {/* <Header /> */}
                 <div className="book-container">
-                  <BookContainer trendingBooks={ trendingBooks } />
+                  <BookContainer trendingBooks={trendingBooks} />
                 </div>
               </section>
             );
-          } }
+          }}
         />
         <Route
-          path='/books/works/:id'
-          render={ ({ match }) => {
+          path="/books/works/:id"
+          render={({ match }) => {
             return (
               <section>
-                <Header />
+                {/* <Header /> */}
                 <div className="book-container">
-                  <SingleBookView singleBookId={ match.params.id } trendingBooks={ trendingBooks } />
+                  <SingleBookView
+                    singleBookId={match.params.id}
+                    trendingBooks={trendingBooks}
+                  />
                 </div>
               </section>
             );
-          } }
+          }}
         />
       </Switch>
+      <SavedBooksList />
     </main>
   );
 };
