@@ -12,7 +12,9 @@ export const saveBookSlice = createSlice({
       state.savedBooks.push(action.payload);
     },
     deleteBook: (state, action) => {
-      state.savedBooks = state.savedBooks.filter((book) => book !== action.payload);
+      state.savedBooks = state.savedBooks.filter(
+        (book) => book !== action.payload
+      );
     },
   },
 });
