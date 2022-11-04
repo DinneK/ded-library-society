@@ -15,6 +15,12 @@ import { Link } from "react-router-dom";
 
 const SavedBooksList = ({ trendingBooks }) => {
   const booksArr = useSelector((state) => state.savedBooks);
+  console.log({ booksArr });
+
+  //map over the saved book array
+  //display cover
+  //title
+
   const displaySaved = booksArr.savedBooks.reduce((accBook, currBook) => {
     trendingBooks.forEach((book) => {
       console.log({ book });
@@ -31,15 +37,15 @@ const SavedBooksList = ({ trendingBooks }) => {
         );
       }
     });
-    console.log({ accBook });
+    // console.log({ accBook });
     return accBook;
   }, []);
   console.log({ displaySaved });
   return (
     <section className="saved-books">
-      {/* <Link to={`/books/saved`} className="book-cards"> */}
-      {displaySaved}
-      {/* </Link> */}
+      <Link to={`/books/saved`} className="book-cards">
+        {displaySaved}
+      </Link>
     </section>
   );
 

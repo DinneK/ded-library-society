@@ -7,6 +7,7 @@ import Header from "../Header/Header";
 import { fetchTrending } from "../../apiCalls";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
 import { useSelector, useDispatch } from "react-redux";
+// import saveBookSlice from "../../features/saveBook/saveBookSlice";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
@@ -33,9 +34,9 @@ const App = () => {
           }}
         />
         <Route
+          exact
           path="/books/works/:id"
           render={({ match }) => {
-            console.log({ match });
             return (
               <section>
                 <div className="book-container">
@@ -48,21 +49,23 @@ const App = () => {
             );
           }}
         />
-        {/* <Route
+        <Route
+          exact
           path="/books/saved"
           render={({ match }) => {
-            console.log({ match });
+            console.log(match.params);
             return (
               <section>
-                <div>
-                  <SavedBooksList trendingBooks={trendingBooks} />
-                </div>
+                <SavedBooksList
+                  trendingBooks={trendingBooks}
+                  // displaySaved={displaySaved}
+                />
               </section>
             );
           }}
-        /> */}
+        />
       </Switch>
-      <SavedBooksList trendingBooks={trendingBooks} />
+      {/* <SavedBooksList trendingBooks={trendingBooks} /> */}
     </main>
   );
 };
