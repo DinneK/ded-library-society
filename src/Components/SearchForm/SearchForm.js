@@ -1,4 +1,7 @@
+//React and React Router
 import React, { useState, useEffect } from "react";
+
+// Components and local files
 import './SearchForm.css';
 import { fetchSearch } from "../../apiCalls";
 

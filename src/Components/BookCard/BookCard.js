@@ -1,16 +1,18 @@
-import "./BookCard.css";
-
+// React and React Router
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Redux
 import { useSelector, useDispatch } from "react-redux";
 import { saveBook, deleteBook } from "../../features/saveBook/saveBookSlice";
 // import saveBookSlice from "../../features/saveBook/saveBookSlice";
 
+// Components and local files
+import "./BookCard.css";
+
 const BookCard = ({ id, cover, title }) => {
   const dispatch = useDispatch();
   const booksArr = useSelector((state) => state.savedBooks);
-
 
   return (
     <div>

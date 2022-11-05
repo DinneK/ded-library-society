@@ -1,7 +1,9 @@
-import "./Header.css";
-
+// React and React Router
 import React from "react";
 import { Link } from "react-router-dom";
+
+// Components and local files
+import "./Header.css";
 
 const Header = () => {
   return (
