@@ -14,10 +14,10 @@ const BookContainer = ({ trendingBooks }) => {
       if (String(book.cover_i) === coverId) {
         cardList.push(
           <BookCard
-            key={ book.key }
-            id={ book.key }
-            cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
-            title={ book.title }
+            key={book.key}
+            id={book.key}
+            cover={`https://covers.openlibrary.org/b/id/${coverId}-M.jpg`}
+            title={book.title}
           />
         );
       }
@@ -25,11 +25,7 @@ const BookContainer = ({ trendingBooks }) => {
     return cardList;
   }, []);
 
-  return (
-    <section className="book-container">
-      { bookCards }
-    </section>
-  );
+  return <section className="book-container">{bookCards}</section>;
 };
 
 export default BookContainer;

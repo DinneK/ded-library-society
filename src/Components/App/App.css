@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.rendering-for-single-book {
+  height: 100vh;
+  background-color: #e8e3e3;
+  width: 100vw;
+}

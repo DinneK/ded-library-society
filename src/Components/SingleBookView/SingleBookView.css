@@ -1,0 +1,83 @@
+ .single-book-container {
+  background-color: #e8e3e3;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+.single-book-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+.image-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 35vw;
+}
+
+.single-book-image {
+  box-shadow:
+      0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075),
+      0 4px 4px hsl(0deg 0% 0% / 0.075),
+      0 8px 8px hsl(0deg 0% 0% / 0.075),
+      0 16px 16px hsl(0deg 0% 0% / 0.075)
+    ;
+ height: 47vh;
+}
+
+ .description-container {
+  background-color: #f8ecf1;
+  box-shadow: inset -5px -5px 30px -15px rgb(0 0 0 / 55%);
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  margin-right: 10%;
+  overflow: scroll;
+  width: 45vw;
+ }
+
+ .single-book-title {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 5vh;
+  margin-bottom: 3%;
+ }
+
+ h3{
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 2.5vh;
+  margin-bottom: 0;
+  margin-left: 4%;
+  margin-top: 1.5%;
+  text-align: left;
+ }
+
+ p{
+  margin-left: 4%;
+  margin-right: 4%;
+  text-align: left;
+ }
+
+ .save-styling{
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+ }
+
+ .save-delete-button {
+  background-color: #e8e3e3;
+  width: 6vw;
+  height: 4vh;
+  border: none;
+ }
+
+ .save-delete-button:hover {
+  transform: scale(2);
+  transition: 0.4s
+ }

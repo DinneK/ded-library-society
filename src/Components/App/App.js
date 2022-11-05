@@ -40,7 +40,7 @@ const App = () => {
           path="/books/works/:id"
           render={ ({ match }) => {
             return (
-              <section>
+              <section className="rendering-for-single-book">
                 <div className="book-container">
                   <SingleBookView
                     singleBookId={ match.params.id }
@@ -57,9 +57,7 @@ const App = () => {
           render={ () => {
             return (
               <section>
-                <SavedBooksList
-                  trendingBooks={ trendingBooks }
-                />
+                <SavedBooksList trendingBooks={trendingBooks} />
               </section>
             );
           } }
