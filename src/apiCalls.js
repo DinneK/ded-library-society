@@ -29,8 +29,16 @@ const fetchSingleBook = async (id) => {
 
 const fetchSearch = async (inputValue) => {
   try {
+<<<<<<< Updated upstream
     const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}`);
     const data = await checkResponse(response);
+=======
+    const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}&limit=25`);
+    const data = await response.json();
+    if (!response.ok) {
+      console.log('error');
+    }
+>>>>>>> Stashed changes
     return data;
   } catch (error) {
     console.log(error);
