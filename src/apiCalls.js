@@ -24,4 +24,17 @@ const fetchSingleBook = async (id) => {
   }
 };
 
-export { fetchTrending, fetchSingleBook };
+const fetchSearch = async (inputValue) => {
+  try {
+    const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}`);
+    const data = await response.json();
+    if (!response.ok) {
+      console.log('error');
+    }
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { fetchTrending, fetchSingleBook, fetchSearch };
