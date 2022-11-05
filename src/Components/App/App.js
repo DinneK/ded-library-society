@@ -1,10 +1,12 @@
+import "./App.css";
+
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
+import { fetchTrending } from "../../apiCalls";
+
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
-import { fetchTrending } from "../../apiCalls";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
 
 const App = () => {
@@ -21,44 +23,44 @@ const App = () => {
         <Route
           exact
           path="/"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <div className="book-container">
-                  <BookContainer trendingBooks={trendingBooks} />
+                  <BookContainer trendingBooks={ trendingBooks } />
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/works/:id"
-          render={({ match }) => {
+          render={ ({ match }) => {
             return (
               <section>
                 <div className="book-container">
                   <SingleBookView
-                    singleBookId={match.params.id}
-                    trendingBooks={trendingBooks}
+                    singleBookId={ match.params.id }
+                    trendingBooks={ trendingBooks }
                   />
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/saved"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <SavedBooksList
-                  trendingBooks={trendingBooks}
+                  trendingBooks={ trendingBooks }
                 />
               </section>
             );
-          }}
+          } }
         />
       </Switch>
     </main>
