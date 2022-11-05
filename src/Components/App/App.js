@@ -56,6 +56,7 @@ const App = () => {
                   <SingleBookView
                     singleBookId={match.params.id}
                     trendingBooks={trendingBooks}
+                    searchResults={searchResults}
                   />
                 </div>
               </section>
@@ -68,7 +69,7 @@ const App = () => {
           render={() => {
             return (
               <section>
-                <SavedBooksList trendingBooks={trendingBooks} />
+                <SavedBooksList searchResults={searchResults} trendingBooks={trendingBooks} />
               </section>
             );
           }}
