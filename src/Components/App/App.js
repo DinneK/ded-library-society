@@ -1,9 +1,10 @@
-import "./App.css";
-
+// React and React Router 
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import { fetchTrending } from "../../apiCalls";
 
+// Components and local files
+import "./App.css";
+import { fetchTrending } from "../../apiCalls";
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
