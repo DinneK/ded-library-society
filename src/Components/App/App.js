@@ -6,6 +6,7 @@ import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
 import { fetchTrending } from "../../apiCalls";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
+import SearchForm from "../SearchForm/SearchForm";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
@@ -17,46 +18,47 @@ const App = () => {
   return (
     <main className="App">
       <Header />
+      <SearchForm />
       <Switch>
         <Route
           exact
           path="/"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <div className="book-container">
-                  <BookContainer trendingBooks={trendingBooks} />
+                  <BookContainer trendingBooks={ trendingBooks } />
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/works/:id"
-          render={({ match }) => {
+          render={ ({ match }) => {
             return (
               <section className="rendering-for-single-book">
                 <div className="book-container">
                   <SingleBookView
-                    singleBookId={match.params.id}
-                    trendingBooks={trendingBooks}
+                    singleBookId={ match.params.id }
+                    trendingBooks={ trendingBooks }
                   />
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/saved"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <SavedBooksList trendingBooks={trendingBooks} />
               </section>
             );
-          }}
+          } }
         />
       </Switch>
     </main>
