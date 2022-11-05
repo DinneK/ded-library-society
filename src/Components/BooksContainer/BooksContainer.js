@@ -1,22 +1,17 @@
-import React from "react";
-import BookCard from "../BookCard/BookCard";
 import "./BookContainer.css";
 
-const BookContainer = ({ trendingBooks }) => {
-  const coverIds = trendingBooks.map((book) => {
-    return String(book['cover_i']);
-  });
+import React from "react";
 
-  const filteredBooks = trendingBooks.reduce((bookArr, book) => {
-    if (book.cover_i) {
-      bookArr.push(book);
-    }
-    return bookArr;
-  }, []);
+import BookCard from "../BookCard/BookCard";
+
+const BookContainer = ({ trendingBooks }) => {
+  const coverIds = trendingBooks.map((book) => String(book.cover_i));
+
+  const filteredBooks = trendingBooks.filter((book) => book.cover_i);
 
   const bookCards = filteredBooks.reduce((cardList, book) => {
     coverIds.forEach(coverId => {
-      if (String(book['cover_i']) === coverId) {
+      if (String(book.cover_i) === coverId) {
         cardList.push(
           <BookCard
             key={ book.key }
