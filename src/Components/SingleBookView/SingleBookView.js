@@ -34,7 +34,7 @@ const SingleBookView = ({ trendingBooks, singleBookId, searchResults }) => {
 //     [fetchCall].find
 //   }
 
-  if (!currentBook && !findTrendingDetails || !findSearchDetails) {
+  if (!currentBook && !findTrendingDetails && !findSearchDetails) {
     return <h1>Please waiting while we load your book...</h1>;
   }
   if (currentBook.covers && currentBook.subjects) {
