@@ -1,20 +1,18 @@
 const checkResponse = (res) => {
   if (!res.ok) {
-    throw new Error(
-      `Status: ${res.status} StatusText: ${res.status.text}`
-    );
+    throw new Error(`Status: ${res.status} StatusText: ${res.status.text}`);
   }
   return res.json();
 };
 
 const fetchTrending = async () => {
   try {
-    const response = await fetch('https://openlibrary.org/trending/daily.json');
+    const response = await fetch("https://openlibrary.org/trending/daily.json");
     const data = await checkResponse(response);
     return data;
   } catch (error) {
     console.log(error);
-  };
+  }
 };
 
 const fetchSingleBook = async (id) => {
@@ -24,21 +22,15 @@ const fetchSingleBook = async (id) => {
     return data;
   } catch (error) {
     console.log(error);
-  };
+  }
 };
 
 const fetchSearch = async (inputValue) => {
   try {
-<<<<<<< Updated upstream
-    const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}`);
+    const response = await fetch(
+      `https://openlibrary.org/search.json?title=${inputValue}&limit=20`
+    );
     const data = await checkResponse(response);
-=======
-    const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}&limit=25`);
-    const data = await response.json();
-    if (!response.ok) {
-      console.log('error');
-    }
->>>>>>> Stashed changes
     return data;
   } catch (error) {
     console.log(error);
