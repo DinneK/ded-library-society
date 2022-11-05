@@ -9,7 +9,8 @@ import { saveBook, deleteBook } from "../../features/saveBook/saveBookSlice";
 import "./SingleBookView.css";
 import { fetchSingleBook } from "../../apiCalls";
 
-const SingleBookView = ({ trendingBooks, singleBookId }) => {
+const SingleBookView = ({ trendingBooks, singleBookId, searchResults }) => {
+    console.log('1', searchResults)
   const [currentBook, setCurrentBook] = useState({});
 
   useEffect(() => {
@@ -22,10 +23,18 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
   const dispatch = useDispatch();
 
   const bookID = `/works/${singleBookId}`;
+//   const books = trendingBooks || searchResults
 
-  const findDetails = trendingBooks.find((book) => book.key === currentBook.key);
+  const findTrendingDetails = trendingBooks.find((book) => book.key === currentBook.key);
+  
+  console.log('2', searchResults)
+  const findSearchDetails = searchResults.find((book) => book.key === currentBook.key);
 
-  if (!currentBook && !findDetails) {
+//   const findDetails = (fetchCall) => {
+//     [fetchCall].find
+//   }
+
+  if (!currentBook && !findTrendingDetails && !findSearchDetails) {
     return <h1>Please waiting while we load your book...</h1>;
   }
   if (currentBook.covers && currentBook.subjects) {
@@ -45,9 +54,9 @@ const SingleBookView = ({ trendingBooks, singleBookId }) => {
             <h2 className="single-book-title">
               { currentBook.title.toUpperCase() }
             </h2>
-            <h3>Author: { findDetails.author_name }</h3>
+            <h3>Author: { findTrendingDetails ? findTrendingDetails.author_name : findSearchDetails.author_name }</h3>
             <h3>Genre: { currentBook.subjects[0] }</h3>
-            <h3>First Published: { findDetails.first_publish_year }</h3>
+            <h3>First Published: { findTrendingDetails ? findTrendingDetails.first_publish_year : findSearchDetails.first_publish_year }</h3>
             <h3>Synopsis:</h3>
             <p>
               { currentBook.description

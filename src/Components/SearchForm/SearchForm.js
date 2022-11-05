@@ -1,39 +1,34 @@
 //React and React Router
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Components and local files
-import './SearchForm.css';
-import { fetchSearch } from "../../apiCalls";
+import "./SearchForm.css";
 
-const SearchForm = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [ searchResults, setSearchResults] = useState([])
-
-  const submitSearch = () => {
-    fetchSearch(searchValue)
-      .then(data => {
-        console.log(data)
-        setSearchResults(data.docs)
-      });
-    clearInputs();
-  };
-  //pagination --> own component for pagination, state of pagination would have page number in state
-  // need to make future pages visible, and past pages
+const SearchForm = ({ submitSearch }) => {
+  const [searchValue, setSearchValue] = useState("");
 
   const clearInputs = () => {
-    setSearchValue('');
+    setSearchValue("");
+  };
+
+  const helperSearch = () => {
+    submitSearch(searchValue);
+    clearInputs();
   };
 
   return (
     <section>
       <input
-        type='text'
-        placeholder='enter book title or genre'
-        name='title'
-        value={ searchValue }
-        onChange={ event => setSearchValue(event.target.value) }
+        type="text"
+        placeholder="enter book title or genre"
+        name="title"
+        value={searchValue}
+        onChange={(event) => setSearchValue(event.target.value)}
       />
-      <button onClick={ (event) => submitSearch(event) }>Search</button>
+      <Link to="/books/search">
+        <button onClick={(event) => helperSearch(event)}>Search</button>
+      </Link>
     </section>
   );
 };

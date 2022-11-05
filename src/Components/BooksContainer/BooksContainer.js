@@ -1,4 +1,4 @@
-import "./BookContainer.css";
+import "./BooksContainer.css";
 
 import React from "react";
 
@@ -10,7 +10,7 @@ const BookContainer = ({ trendingBooks }) => {
   const filteredBooks = trendingBooks.filter((book) => book.cover_i);
 
   const bookCards = filteredBooks.reduce((cardList, book) => {
-    coverIds.forEach(coverId => {
+    coverIds.forEach((coverId) => {
       if (String(book.cover_i) === coverId) {
         cardList.push(
           <BookCard
