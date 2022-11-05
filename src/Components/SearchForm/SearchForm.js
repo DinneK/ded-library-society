@@ -7,20 +7,34 @@ import { fetchSearch } from "../../apiCalls";
 
 const SearchForm = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [ searchResults, setSearchResults] = useState([])
 
-  useEffect(() => {
-    fetchSearch()
-      .then(data => console.log(data));
-  }, []);
+//   useEffect(() => {
+//     fetchSearch()
+//       .then(data => {
+//         console.log(data)
+//         setSearchResults(data.docs)
+//       });
+//   }, []);
 
-  const submitSearch = event => {
-    event.preventDefault();
-    const newSearch = {
-      searchValue,
-    };
-    setSearchValue(newSearch);
+//   console.log({searchResults})
+//   const results = searchResults.filter(book => book.title.toLowerCase().includes(searchValue.toLowerCase()))
+//   console.log({results})
+
+  const submitSearch = () => {
+    fetchSearch(searchValue)
+      .then(data => {
+        console.log(data)
+        setSearchResults(data.docs)
+      });
+    // const newSearch = {
+    //   searchValue,
+    // };
+    // setSearchValue(newSearch);
     clearInputs();
   };
+  //pagination --> own component for pagination, state of pagination would have page number in state
+  // need to make future pages visible, and past pages
 
   const clearInputs = () => {
     setSearchValue('');
@@ -35,7 +49,7 @@ const SearchForm = () => {
         value={ searchValue }
         onChange={ event => setSearchValue(event.target.value) }
       />
-      <button onClick={ submitSearch }>Search</button>
+      <button onClick={ (event) => submitSearch(event) }>Search</button>
     </section>
   );
 };
