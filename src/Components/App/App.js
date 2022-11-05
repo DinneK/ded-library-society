@@ -22,10 +22,7 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const submitSearch = (inputValue) => {
-    fetchSearch(inputValue).then((data) => {
-      console.log(data);
-      setSearchResults(data.docs);
-    });
+    fetchSearch(inputValue).then((data) => setSearchResults(data.docs));
   };
 
   return (

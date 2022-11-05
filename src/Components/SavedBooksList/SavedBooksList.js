@@ -9,14 +9,15 @@ import { useSelector } from "react-redux";
 import "./SavedBooksList.css";
 import BookCard from "../BookCard/BookCard";
 
-const SavedBooksList = ({ trendingBooks }) => {
+const SavedBooksList = ({ trendingBooks, searchResults }) => {
   const booksArr = useSelector((state) => state.savedBooks);
-
-  const displaySaved = booksArr.savedBooks.reduce((accBook, currBook) => {
-    trendingBooks.forEach((book) => {
+  const bookList = 'trendingBooks' || 'searchResults'
+  const displaySaved = (data) => {
+    const showBooks = booksArr.savedBooks.reduce((accBook, currBook) => {
+    data.forEach((book) => {
+      console.log(data)
       if (book.key === currBook) {
         accBook.push(
-          <Link to={ `/books${book.key}` } className="book-cards">
             <BookCard
               key={ book.key }
               id={ book.key }
@@ -25,17 +26,20 @@ const SavedBooksList = ({ trendingBooks }) => {
               )}-M.jpg` }
               title={ book.title }
             />
-          </Link>
         );
       }
     });
-
     return accBook;
   }, []);
+  console.log(showBooks)
+  return showBooks
+}
 
   return (
     <section className="saved-books">
-      { displaySaved }
+      {!booksArr.length && <p>You Haven't Saved Any Books Yet!</p>}
+      { trendingBooks && displaySaved(trendingBooks)}
+      {searchResults && displaySaved(searchResults)}
     </section>
   );
 };

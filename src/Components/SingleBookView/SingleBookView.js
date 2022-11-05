@@ -10,7 +10,6 @@ import "./SingleBookView.css";
 import { fetchSingleBook } from "../../apiCalls";
 
 const SingleBookView = ({ trendingBooks, singleBookId, searchResults }) => {
-    console.log('1', searchResults)
   const [currentBook, setCurrentBook] = useState({});
 
   useEffect(() => {
@@ -23,16 +22,10 @@ const SingleBookView = ({ trendingBooks, singleBookId, searchResults }) => {
   const dispatch = useDispatch();
 
   const bookID = `/works/${singleBookId}`;
-//   const books = trendingBooks || searchResults
 
   const findTrendingDetails = trendingBooks.find((book) => book.key === currentBook.key);
   
-  console.log('2', searchResults)
   const findSearchDetails = searchResults.find((book) => book.key === currentBook.key);
-
-//   const findDetails = (fetchCall) => {
-//     [fetchCall].find
-//   }
 
   if (!currentBook && !findTrendingDetails && !findSearchDetails) {
     return <h1>Please waiting while we load your book...</h1>;
@@ -69,8 +62,8 @@ const SingleBookView = ({ trendingBooks, singleBookId, searchResults }) => {
                 ) }
             </p>
           </div>
-        </div>
         <div className="save-styling">
+        </div>
           { !booksArr.savedBooks.includes(bookID) && <button
             className="save-delete-button"
             onClick={ () => dispatch(saveBook(currentBook.key)) }
