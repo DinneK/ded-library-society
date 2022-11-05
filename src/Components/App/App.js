@@ -1,10 +1,12 @@
+import "./App.css";
+
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import "./App.css";
+import { fetchTrending } from "../../apiCalls";
+
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
-import { fetchTrending } from "../../apiCalls";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
 import SearchForm from "../SearchForm/SearchForm";
 
