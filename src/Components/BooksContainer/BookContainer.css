@@ -1,8 +1,8 @@
 .book-container {
-  /* display: flex;
+   display: flex;
   justify-content: center;
   overflow-x: scroll;
-  margin: 2.5%; */
+  margin: 2.5%; 
   display: flex;
   flex-wrap: wrap;
-} 
+}  
