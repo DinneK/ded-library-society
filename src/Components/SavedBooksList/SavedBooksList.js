@@ -9,16 +9,15 @@ const SavedBooksList = ({ trendingBooks, searchResults }) => {
   const displaySaved = (data) => {
     const showBooks = bookList.savedBooks.reduce((accBook, currBook) => {
       data.forEach((book) => {
-        console.log(data);
         if (book.key === currBook) {
           accBook.push(
             <BookCard
-              key={ book.key }
-              id={ book.key }
-              cover={ `https://covers.openlibrary.org/b/id/${String(
+              key={book.key}
+              id={book.key}
+              cover={`https://covers.openlibrary.org/b/id/${String(
                 book.cover_i
-              )}-M.jpg` }
-              title={ book.title }
+              )}-M.jpg`}
+              title={book.title}
             />
           );
         }
@@ -32,9 +31,9 @@ const SavedBooksList = ({ trendingBooks, searchResults }) => {
 
   return (
     <section className="saved-books">
-      { !bookList.length && <p>You Haven't Saved Any Books Yet!</p> }
-      { trendingBooks && displaySaved(trendingBooks) }
-      { searchResults && displaySaved(searchResults) }
+      {!bookList.length && <p>You Haven't Saved Any Books Yet!</p>}
+      {trendingBooks && displaySaved(trendingBooks)}
+      {searchResults && displaySaved(searchResults)}
     </section>
   );
 };
