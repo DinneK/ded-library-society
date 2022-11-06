@@ -23,7 +23,13 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const submitSearch = (inputValue) => {
-    fetchSearch(inputValue).then((data) => setSearchResults(data.docs));
+    // console.log(fetchSearch(inputValue).catch());
+    fetchSearch(inputValue).then((data) => {
+      // if (inputValue === "") {
+      //   return <h2>Please Enter A Book Title</h2>;
+      // }
+      setSearchResults(data.docs);
+    });
   };
 
   return (

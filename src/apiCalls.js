@@ -33,7 +33,7 @@ const fetchSearch = async (inputValue) => {
     const data = await checkResponse(response);
     return data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
