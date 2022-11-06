@@ -26,6 +26,7 @@ const SearchForm = ({ submitSearch }) => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />
+        {/* {!searchValue.length ? <p>Please Enter a Query</p> : */}
       <Link to="/books/search">
         <button onClick={(event) => helperSearch(event)}>Search</button>
       </Link>

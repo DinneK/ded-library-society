@@ -22,11 +22,12 @@ const BookContainer = ({ trendingBooks }) => {
         );
       }
     });
-
     return cardList;
   }, []);
 
-  return <section className="book-container">{bookCards}</section>;
+  return (
+    <section className="book-container">{bookCards}</section>
+  )
 };
 
 export default BookContainer;
