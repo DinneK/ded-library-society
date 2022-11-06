@@ -29,7 +29,15 @@ const SearchResultsContainer = ({ searchResults }) => {
     });
     return cardList;
   }, []);
-  return <section className="book-container">{bookCards}</section>;
+  console.log({ searchResults });
+  return (
+    <section className="book-container">
+      {!searchResults.length && (
+        <p>No search results found. Please try again.</p>
+      )}
+      {searchResults && bookCards}
+    </section>
+  );
 };
 
 export default SearchResultsContainer;
