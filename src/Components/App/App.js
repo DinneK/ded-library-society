@@ -8,6 +8,7 @@ import { fetchTrending, fetchSearch } from "../../apiCalls";
 import BookContainer from "../BooksContainer/BooksContainer";
 import SingleBookView from "../SingleBookView/SingleBookView";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchResultsContainer from "../SearchResultsContainer/SearchResultsContainer";
@@ -66,7 +67,10 @@ const App = () => {
           render={() => {
             return (
               <section>
-                <SavedBooksList searchResults={searchResults} trendingBooks={trendingBooks} />
+                <SavedBooksList
+                  searchResults={searchResults}
+                  trendingBooks={trendingBooks}
+                />
               </section>
             );
           }}
@@ -83,6 +87,7 @@ const App = () => {
           }}
         />
       </Switch>
+      <Footer />
     </main>
   );
 };

@@ -1,4 +1,5 @@
 .App {
+  background-color: #e8e3e3;
   text-align: center;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .rendering-for-single-book {
-  height: 100vh;
+  height: 75vh;
   background-color: #e8e3e3;
   width: 100vw;
 }
