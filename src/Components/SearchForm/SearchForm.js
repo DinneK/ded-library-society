@@ -26,13 +26,13 @@ const SearchForm = ({ submitSearch }) => {
     <section>
       <input
         type="text"
-        placeholder="enter book title or genre"
+        placeholder="enter book title"
         name="title"
-        value={ searchValue }
-        onChange={ (event) => setSearchValue(event.target.value) }
+        value={searchValue}
+        onChange={(event) => setSearchValue(event.target.value)}
       />
-      <button onClick={ (event) => helperSearch(event) }>Search</button>
-      <p>{ error }</p>
+      <button onClick={(event) => helperSearch(event)}>Search</button>
+      <p>{error}</p>
     </section>
   );
 };
