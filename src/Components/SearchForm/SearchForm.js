@@ -1,19 +1,11 @@
-//React and React Router
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-
-// Components and local files
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./SearchForm.css";
 
 const SearchForm = ({ submitSearch }) => {
   const [searchValue, setSearchValue] = useState("");
   const [error, setError] = useState("");
   const history = useHistory();
-  // const checkInput = () => {
-  //   if (searchValue === "") {
-  //     return setError("testing");
-  //   }
-  // };
 
   const clearInputs = () => {
     setSearchValue("");
@@ -36,13 +28,11 @@ const SearchForm = ({ submitSearch }) => {
         type="text"
         placeholder="enter book title or genre"
         name="title"
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        value={ searchValue }
+        onChange={ (event) => setSearchValue(event.target.value) }
       />
-
-      <button onClick={(event) => helperSearch(event)}>Search</button>
-
-      <p>{error}</p>
+      <button onClick={ (event) => helperSearch(event) }>Search</button>
+      <p>{ error }</p>
     </section>
   );
 };

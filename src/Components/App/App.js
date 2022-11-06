@@ -1,8 +1,5 @@
-// React and React Router
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-
-// Components and local files
 import "./App.css";
 import { fetchTrending, fetchSearch } from "../../apiCalls";
 import BookContainer from "../BooksContainer/BooksContainer";
@@ -12,85 +9,89 @@ import Footer from "../Footer/Footer";
 import SavedBooksList from "../SavedBooksList/SavedBooksList";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchResultsContainer from "../SearchResultsContainer/SearchResultsContainer";
+import Loading from "../Loading/Loading";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchTrending().then((data) => setTrendingBooks(data.works));
+    fetchTrending().then((data) => {
+      setTrendingBooks(data.works);
+      setLoading(false);
+    });
   }, []);
 
-  const [searchResults, setSearchResults] = useState([]);
-
   const submitSearch = (inputValue) => {
-    // console.log(fetchSearch(inputValue).catch());
+    setLoading(true);
     fetchSearch(inputValue).then((data) => {
-      // if (inputValue === "") {
-      //   return <h2>Please Enter A Book Title</h2>;
-      // }
       setSearchResults(data.docs);
+      setLoading(false);
     });
   };
 
   return (
     <main className="App">
       <Header />
-      <SearchForm submitSearch={submitSearch} />
       <Switch>
         <Route
           exact
           path="/"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <div className="book-container">
-                  <BookContainer trendingBooks={trendingBooks} />
+                  <SearchForm submitSearch={ submitSearch } />
+                  { loading && <Loading /> }
+                  { !loading && <BookContainer trendingBooks={ trendingBooks } /> }
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/works/:id"
-          render={({ match }) => {
+          render={ ({ match }) => {
             return (
               <section className="rendering-for-single-book">
                 <div className="book-container">
                   <SingleBookView
-                    singleBookId={match.params.id}
-                    trendingBooks={trendingBooks}
-                    searchResults={searchResults}
+                    singleBookId={ match.params.id }
+                    trendingBooks={ trendingBooks }
+                    searchResults={ searchResults }
                   />
                 </div>
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/saved"
-          render={() => {
+          render={ () => {
             return (
               <section>
                 <SavedBooksList
-                  searchResults={searchResults}
-                  trendingBooks={trendingBooks}
+                  searchResults={ searchResults }
+                  trendingBooks={ trendingBooks }
                 />
               </section>
             );
-          }}
+          } }
         />
         <Route
           exact
           path="/books/search"
-          render={() => {
+          render={ () => {
             return (
               <section>
-                <SearchResultsContainer searchResults={searchResults} />
+                { loading && <Loading /> }
+                { !loading && <SearchResultsContainer searchResults={ searchResults } /> }
               </section>
             );
-          }}
+          } }
         />
       </Switch>
       <Footer />
