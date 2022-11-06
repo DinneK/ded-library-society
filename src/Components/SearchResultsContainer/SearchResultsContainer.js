@@ -12,7 +12,6 @@ import "./SearchResultsContainer.css";
 //The search results container the access the BooksContainer to render cards
 
 const SearchResultsContainer = ({ searchResults }) => {
-  console.log(searchResults);
   const coverIds = searchResults.map((book) => String(book.cover_i));
   const filteredBooks = searchResults.filter((book) => book.cover_i);
   const bookCards = filteredBooks.reduce((cardList, book) => {
