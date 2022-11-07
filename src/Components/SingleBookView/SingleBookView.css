@@ -2,7 +2,7 @@
   background-color: #e8e3e3;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
   justify-content: center;
   width: 100vw;
 }
@@ -71,9 +71,10 @@
  }
 
  .save-delete-button {
-  background-color: #e8e3e3;
+  background-color:transparent;
+  filter: invert(60%) sepia(37%) saturate(3340%) hue-rotate(298deg) brightness(77%) contrast(91%);
   width: 6vw;
-  height: 4vh;
+  height: 6vh;
   border: none;
  }
 

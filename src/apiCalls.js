@@ -27,13 +27,11 @@ const fetchSingleBook = async (id) => {
 
 const fetchSearch = async (inputValue) => {
   try {
-    const response = await fetch(
-      `https://openlibrary.org/search.json?title=${inputValue}&limit=20`
-    );
+    const response = await fetch(`https://openlibrary.org/search.json?q=${inputValue}`);
     const data = await checkResponse(response);
     return data;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
