@@ -25,7 +25,7 @@ const BookContainer = ({ trendingBooks }) => {
   }, []);
 
   return (
-    <section className="book-container">
+    <section className="all-books">
       { bookCards }
     </section>
   );

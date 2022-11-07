@@ -1,8 +1,10 @@
-.book-container {
-   display: flex;
-  justify-content: center;
-  overflow-x: scroll;
-  margin: 2.5%; 
+.all-books {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  width: 96vw;
+  height: 60vh;
+  margin: 1%; 
+  overflow-y: scroll;
 }  

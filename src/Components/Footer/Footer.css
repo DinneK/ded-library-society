@@ -1,16 +1,22 @@
 .footer-container {
-  align-items: flex-end;
-  background-color: #525760;
   display: flex;
-  height: 20vh;
+  align-items: center;
   justify-content: flex-end;
+  background-color: #525760;
+  height: 12.5vh;
   width: 100vw;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  width: 10vw
 }
 
 h4 {
   color: #F6EEEB;
   font-family: 'Libre Franklin', sans-serif;
   font-size: 1em;
-  margin-right: 2%;
+  margin: 1%;
   text-shadow: 0px 10px 5px rgb(95 70 80 / 59%);
 }

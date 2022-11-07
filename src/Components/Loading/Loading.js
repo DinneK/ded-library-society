@@ -1,11 +1,11 @@
 import React from "react";
 import './Loading.css';
-import loadingGhosts from '../../assets/DEDLoading.mp4';
+import loadingGhosts from '../../assets/loading-ghosts.mp4';
 
 const Loading = () => {
   return (
     <section>
-      <video autoPlay muted loop preload='auto' className='loading-ghost'>
+      <video autoPlay muted loop preload='auto' className='loading-ghosts'>
         <source src={ loadingGhosts } type='video/mp4' />
       </video>
     </section>
