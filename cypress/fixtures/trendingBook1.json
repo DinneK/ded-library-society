@@ -1,0 +1,50 @@
+{
+  "subjects": [
+      "Self-realization",
+      "Conduct of life",
+      "Conducta de vida",
+      "nyt:advice-how-to-and-miscellaneous=2016-10-02",
+      "New York Times bestseller"
+  ],
+  "key": "/works/OL17590212W",
+  "title": "The Subtle Art of Not Giving a F*ck",
+  "authors": [
+      {
+          "author": {
+              "key": "/authors/OL2964000A"
+          },
+          "type": {
+              "key": "/type/author_role"
+          }
+      }
+  ],
+  "type": {
+      "key": "/type/work"
+  },
+  "covers": [
+      8231990,
+      7907459,
+      8846339,
+      9358591,
+      10162546,
+      8574581,
+      8814953,
+      8596650,
+      -1,
+      8577361,
+      10483024,
+      10483025,
+      10735994,
+      12248881
+  ],
+  "latest_revision": 37,
+  "revision": 37,
+  "created": {
+      "type": "/type/datetime",
+      "value": "2016-10-26T13:42:17.105614"
+  },
+  "last_modified": {
+      "type": "/type/datetime",
+      "value": "2022-10-26T07:35:54.975819"
+  }
+}
