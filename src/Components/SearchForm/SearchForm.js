@@ -31,7 +31,12 @@ const SearchForm = ({ submitSearch }) => {
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />
-      <button onClick={(event) => helperSearch(event)}>Search</button>
+      <button
+        className="search-button"
+        onClick={(event) => helperSearch(event)}
+      >
+        Search
+      </button>
       <p>{error}</p>
     </section>
   );
