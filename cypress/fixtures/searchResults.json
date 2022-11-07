@@ -1,0 +1,91 @@
+{
+  "numFound": 4800,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+    {
+      "key": "/works/OL11999891W",
+      "type": "work",
+      "seed": [
+          "/books/OL34817387M",
+          "/books/OL34454765M",
+          "/books/OL34976379M"
+      ],
+      "title": "The Help",
+      "title_suggest": "The Help",
+      "edition_count": 17,
+      "edition_key": [
+          "OL34817387M",
+          "OL34454765M",
+          "OL34976379M"
+      ],
+      "publish_date": [
+          "2015",
+          "2013",
+          "2009"
+      ],
+      "publish_year": [
+          2015,
+          2013,
+          2009
+      ],
+      "first_publish_year": 2009,
+      "number_of_pages_median": 464,
+      "lcc": [
+          "PS-3619.00000000.T636H4 2010",
+          "PS-3619.00000000.T636"
+      ],
+      "isbn": [
+          "0399155880",
+          "9780241973578",
+          "0784836167"
+      ],
+      "last_modified_i": 1667269207,
+      "ebook_count_i": 1,
+      "ebook_access": "borrowable",
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": [
+          "help0000stoc_z6s6"
+      ],
+      "ia_collection": [
+          "inlibrary",
+          "internetarchivebooks",
+          "printdisabled"
+      ],
+      "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+      "lending_edition_s": "OL32646554M",
+      "lending_identifier_s": "help0000stoc_z6s6",
+      "printdisabled_s": "OL32646554M",
+      "cover_edition_key": "OL32646554M",
+      "cover_i": 11276863,
+      "publisher": [
+          "Penguin Books, Limited",
+          "Marco Book Company"
+      ],
+      "language": [
+          "eng",
+          "swe"
+      ],
+      "author_key": [
+          "OL9123833A"
+      ],
+      "author_name": [
+          "Kathryn Stockett"
+      ],
+      "ia_box_id": [
+          "IA40150817"
+      ],
+      "publisher_facet": [
+          "Fig Tree",
+          "Howes Limited, W. F.",
+          "Marco Book Company"
+      ],
+      "_version_": 1748258481322852353,
+      "lcc_sort": "PS-3619.00000000.T636H4 2010",
+      "author_facet": [
+          "OL9123833A Kathryn Stockett"
+      ]
+  }
+]
+}
