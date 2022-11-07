@@ -31,7 +31,7 @@ const SavedBooksList = ({ trendingBooks, searchResults }) => {
 
   return (
     <section className="saved-books">
-      {!bookList.length && <p>You Haven't Saved Any Books Yet!</p>}
+      {!bookList.savedBooks.length && <p>You Haven't Saved Any Books Yet!</p>}
       {trendingBooks && displaySaved(trendingBooks)}
       {searchResults && displaySaved(searchResults)}
     </section>

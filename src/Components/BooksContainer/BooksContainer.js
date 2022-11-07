@@ -20,7 +20,6 @@ const BookContainer = ({ trendingBooks }) => {
         );
       }
     });
-
     return cardList;
   }, []);
 
