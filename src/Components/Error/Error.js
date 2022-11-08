@@ -5,7 +5,7 @@ import error from '../../assets/error-message.png';
 const Error = () => {
   return (
     <section className='error'>
-      <img src={ error } alt="Error message" />
+      <img src={ error } data-cy='error-image' alt="Error message" />
     </section>
   );
 };
