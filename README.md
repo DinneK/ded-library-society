@@ -18,7 +18,7 @@
 ---
 
 ## About The Project
-
+The D.E.D. Library Society is a revolutionary book application that allows the user to browse over 5 million books to add to their collection. It utilizes React and Redux to manage a global state and gives users the ability to save their favorite books with a click of a button. 
 
 [Deployed Link](https://ded-library-society.vercel.app/)
 
@@ -74,10 +74,11 @@ You can find the project [here](https://github.com/DinneK/ded-library-society) a
 
 ## Usage
 
-New feature ideas:
+Future Iterations:
 
 - [ ] Implement pagination for a better UI/UX experience
 - [ ] Make mobile accessible
+- [ ] Refactor error handling utilizing Async/Await.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,6 +114,15 @@ The following resources helped us build this project:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Reflections
+### Wins:
+- Successfully self-teaching and implementing Redux and React Hooks.
+- Deepening our understanding of the reusable nature of React Components.
+- A collaborative and empathetic team dynamic, seamlessly blending our strengths to produce an application that we are very proud of.
+
+### Challenges:
+- Understanding and implementing Redux.
+- Deciphering and managing the numerous endpoints of the Open Library API.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
