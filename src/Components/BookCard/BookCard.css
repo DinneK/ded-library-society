@@ -21,3 +21,12 @@
 .fav-button {
   margin-bottom: 15%;
 }
+
+.book-card-title {
+  color: #000000;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
