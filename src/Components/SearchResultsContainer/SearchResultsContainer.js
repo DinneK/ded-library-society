@@ -11,10 +11,10 @@ const SearchResultsContainer = ({ searchResults }) => {
       if (String(book.cover_i) === coverId) {
         cardList.push(
           <BookCard
-            key={ book.key }
-            id={ book.key }
-            cover={ `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` }
-            title={ book.title }
+            key={book.key}
+            id={book.key}
+            cover={`https://covers.openlibrary.org/b/id/${coverId}-M.jpg`}
+            title={book.title}
           />
         );
       }
@@ -24,9 +24,11 @@ const SearchResultsContainer = ({ searchResults }) => {
   }, []);
 
   return (
-    <section className="book-container">
-      { !searchResults.length && <p>No search results found. Please try again.</p> }
-      { searchResults && bookCards }
+    <section className="search-results-container">
+      {!searchResults.length && (
+        <p>No search results found. Please try again.</p>
+      )}
+      {searchResults && bookCards}
     </section>
   );
 };

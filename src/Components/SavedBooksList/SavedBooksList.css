@@ -1,0 +1,7 @@
+.saved-books {
+  display: flex;
+  flex-wrap: wrap;
+  height: 70vh;
+  justify-content: space-evenly;
+  overflow: scroll
+}

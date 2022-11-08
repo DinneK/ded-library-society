@@ -25,8 +25,9 @@ const SearchForm = ({ submitSearch }) => {
   return (
     <section>
       <input
+        className="search-input"
         type="text"
-        placeholder="enter book title"
+        placeholder="Enter book title"
         name="title"
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
