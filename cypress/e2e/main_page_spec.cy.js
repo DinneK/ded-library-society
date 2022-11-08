@@ -12,14 +12,6 @@ describe("The D.E.D. home page flows", () => {
     cy.get("h1").contains("The D.E.D. Library Society");
   });
 
-  // it.only("should display error handling if network request fails", () => {
-  //   cy.intercept("GET", "https://openlibrary.org/trending/daily.json", {
-  //     statusCode: 404,
-  //     ok: false
-  //   })
-  //   cy.visit("http://localhost:3000").contains(`Uh-Oh! That's a 404 Error`)
-  // })
-
   it("should be able to click the your favorites button and get to your favorite books", () => {
     cy.get(".header-button").first().click();
     cy.url().should("eq", "http://localhost:3000/books/saved");
