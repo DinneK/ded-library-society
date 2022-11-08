@@ -12,26 +12,26 @@ const BookCard = ({ id, cover, title }) => {
 
   return (
     <div className="book-card">
-      <Link to={ `/books${id}` } className="card-single-link" id={ id } key={ id }>
-        <img className="book-cover" src={ cover } alt={ `${title} Book Cover` } />
-        <h2>{ title }</h2>
+      <Link to={`/books${id}`} className="card-single-link" id={id} key={id}>
+        <img className="book-cover" src={cover} alt={`${title} Book Cover`} />
+        <h2 className="book-card-title">{title}</h2>
       </Link>
-      { !bookList.savedBooks.includes(id) && (
+      {!bookList.savedBooks.includes(id) && (
         <button
           className="save-delete-button fav-button"
-          onClick={ () => dispatch(saveBook(id)) }
+          onClick={() => dispatch(saveBook(id))}
         >
-          <img src={ emptyHeart } alt="add favorite" />
+          <img src={emptyHeart} alt="add favorite" />
         </button>
-      ) }
-      { bookList.savedBooks.includes(id) && (
+      )}
+      {bookList.savedBooks.includes(id) && (
         <button
           className="save-delete-button fav-button"
-          onClick={ () => dispatch(deleteBook(id)) }
+          onClick={() => dispatch(deleteBook(id))}
         >
-          <img src={ filledHeart } alt="delete favorite" />
+          <img src={filledHeart} alt="delete favorite" />
         </button>
-      ) }
+      )}
     </div>
   );
 };
