@@ -1,0 +1,38 @@
+{"works": [
+    {
+     "key": "/works/OL17590212W",
+      "title": "The Subtle Art of Not Giving a F*ck",
+      "edition_count": 36,
+      "first_publish_year": 2016,
+      "has_fulltext": true,
+      "public_scan_b": false,
+      "ia": ["subtleartofnotgi0000mans_n2n5", "subtleartofnotgi0000mans_h2r6"],
+      "ia_collection_s": "internetarchivebooks;printdisabled",
+      "cover_edition_key": "OL26193423M",
+      "cover_i": 8231990,
+      "language": ["eng", "por", "rus", "spa"],
+      "author_key": ["OL2964000A"],
+      "author_name": ["Mark Manson"],
+      "availability": {
+        "status": "private",
+        "available_to_browse": false,
+        "available_to_borrow": false,
+        "available_to_waitlist": false,
+        "is_printdisabled": true,
+        "is_readable": false,
+        "is_lendable": false,
+        "is_previewable": true,
+        "identifier": "subtleartofnotgi0000mans_n2n5",
+        "isbn": "9780062899149",
+        "oclc": null,
+        "openlibrary_work": "OL17590212W",
+        "openlibrary_edition": "OL27351482M",
+        "last_loan_date": null,
+        "num_waitlist": null,
+        "last_waitlist_date": null,
+        "is_restricted": true,
+        "is_browseable": false,
+       "__src__": "core.models.lending.get_availability"
+      }
+    }
+]}

@@ -33,12 +33,14 @@ describe("The D.E.D. home page flows", () => {
   });
 
   it("Should be able to search for book by title", () => {
-    cy.get("input").type("help").get(".search-button").click();
-    cy.intercept("GET", "https://openlibrary.org/search.json?q=$charlotte", {
+    cy.get("input").type("charlotte").get(".search-button").click();
+    cy.intercept("GET", "https://openlibrary.org/search.json?q=charlotte", {
       statusCode: 200,
       ok: true,
       fixture: "searchResults",
     });
-    cy.visit("http://localhost:3000/books/search");
+    cy.url().should("eq", "http://localhost:3000/books/search")
+    cy.get('.book-cover').first().click()
+    cy.url().should("eq", "http://localhost:3000/books/works/OL483391W")
   });
 });
