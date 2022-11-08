@@ -10,14 +10,19 @@ import SavedBooksList from "../SavedBooksList/SavedBooksList";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchResultsContainer from "../SearchResultsContainer/SearchResultsContainer";
 import Loading from "../Loading/Loading";
+import Error from "../Error/Error";
 
 const App = () => {
   const [trendingBooks, setTrendingBooks] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetchTrending().then((data) => {
+      if (data === undefined) {
+        setError(true);
+      }
       setTrendingBooks(data.works);
       setLoading(false);
     });
@@ -43,8 +48,9 @@ const App = () => {
               <section>
                 <div className="book-container">
                   <SearchForm submitSearch={ submitSearch } />
-                  { loading && <Loading /> }
-                  { !loading && <BookContainer trendingBooks={ trendingBooks } /> }
+                  { error && !loading && <Error /> }
+                  { !error && loading && <Loading /> }
+                  { !error && !loading && <BookContainer trendingBooks={ trendingBooks } /> }
                 </div>
               </section>
             );
@@ -57,6 +63,7 @@ const App = () => {
             return (
               <section className="rendering-for-single-book">
                 <div className="book-container">
+                  { error && <Error /> }
                   <SingleBookView
                     singleBookId={ match.params.id }
                     trendingBooks={ trendingBooks }
@@ -72,7 +79,8 @@ const App = () => {
           path="/books/saved"
           render={ () => {
             return (
-              <section>
+              <section className="book-container">
+                { error && <Error /> }
                 <SavedBooksList
                   searchResults={ searchResults }
                   trendingBooks={ trendingBooks }
@@ -86,9 +94,11 @@ const App = () => {
           path="/books/search"
           render={ () => {
             return (
-              <section>
-                { loading && <Loading /> }
-                { !loading && <SearchResultsContainer searchResults={ searchResults } /> }
+              <section className="book-container">
+                <SearchForm submitSearch={ submitSearch } />
+                { error && !loading && <Error /> }
+                { !error && loading && <Loading /> }
+                { !error && !loading && <SearchResultsContainer searchResults={ searchResults } /> }
               </section>
             );
           } }
